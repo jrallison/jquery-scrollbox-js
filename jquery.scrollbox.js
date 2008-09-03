@@ -66,11 +66,11 @@
 						if ( list.children( 'li' ).length > opts.maxsize )
 							jQuery( jQuery( list.children( 'li' ) ).slice( opts.maxsize ) ).remove();
 						
-						processQueuedItems.call($this);
+						processQueuedItems.call( $this );
 					}, opts.speed + BUFFER_TIME );
 				} else {
 					// We are currently animating, queue up the item
-					queue.push( j$(this) );
+					queue.push( jQuery( this ) );
 				}
 			});
 		});
@@ -82,7 +82,7 @@
 		return boxes.each( function( ) {
 			$this = jQuery( this );
 			var list = $this.children( 'ul' );
-			var item = list.children('li:first');
+			var item = list.children( 'li:first' );
 			
 			if ( parseInt( list.css( 'top' ) ) == 0 ) {
 				// find height of top item
@@ -102,7 +102,7 @@
 				setTimeout( function() {
 					item.remove();
 					setHiddenSpaceSize( list, 0, 0 );
-					processQueuedItems.call($this);
+					processQueuedItems.call( $this );
 				}, opts.speed + BUFFER_TIME );
 			} else {
 				// We are currently animating, queue up the pop command
@@ -130,7 +130,7 @@
 				else                 $this.scrollbox.push( item );
 			} else {
 				setTimeout( function() { 
-					processQueuedItems.call($this) 
+					processQueuedItems.call( $this ) 
 				}, 100 );
 			}
 	};
