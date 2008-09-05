@@ -39,15 +39,15 @@
 			// Check structure - we expect a list element
 			// 		<div><ul></ul></div>
 			// If it doesn't exist, create the list
-			if ( $this.children( 'ul' ).length == 0 ) {
+			if ( $this.find( 'ul' ).length == 0 ) {
 				$this.append( '<ul></ul>' );
 			}
 			 
 			// modify CSS
 			$this.css( 'position', 'relative' );
 			$this.css( 'overflow', 'hidden' );
-			$this.children( 'ul' ).css( 'position', 'relative' );
-			$this.children( 'ul' ).css( 'margin', '0px' );
+			$this.find( 'ul' ).css( 'position', 'relative' );
+			$this.find( 'ul' ).css( 'margin', '0px' );
 			
 			// TODO don't overwrite current values?
 			setHiddenSpaceSize( $this.children( 'ul' ), 0, 0 );
@@ -59,7 +59,7 @@
 		
 		return boxes.each( function( ) {
 			$this = jQuery( this );
-			var list = $this.children( 'ul' );
+			var list = $this.find( 'ul' );
 			
 			items.each( function( ) {
 				if ( parseInt( list.css( 'top' ) ) == 0 ) {
@@ -101,7 +101,7 @@
 		
 		return boxes.each( function( ) {
 			$this = jQuery( this );
-			var list = $this.children( 'ul' );
+			var list = $this.find( 'ul' );
 			var item = list.children( 'li:first' );
 			
 			if ( parseInt( list.css( 'top' ) ) == 0 ) {
@@ -140,7 +140,7 @@
 	// Private functions 
 	function processQueuedItems( ) {
 		var $this = this;
-		var list = $this.children( 'ul' );
+		var list = $this.find( 'ul' );
 		
 		if ( queue.length > 0 )
 			if ( parseInt( list.css( 'top' ) ) == 0 ) {
