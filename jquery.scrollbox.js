@@ -50,7 +50,7 @@
 			$this.find( 'ul' ).css( 'margin', '0px' );
 			
 			// TODO don't overwrite current values?
-			setHiddenSpaceSize( $this.children( 'ul' ), 0, 0 );
+			setHiddenSpaceSize( $this.find( 'ul' ), 0, 0 );
 		});
 	};
 	
@@ -62,6 +62,7 @@
 			var list = $this.find( 'ul' );
 			
 			items.each( function( ) {
+				
 				if ( parseInt( list.css( 'top' ) ) == 0 ) {
 					// prepend item
 					list.prepend( this );
